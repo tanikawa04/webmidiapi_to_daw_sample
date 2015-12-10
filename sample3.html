@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Web MIDI API Sample 3</title>
+    <style>
+        button {
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web MIDI API Sample 3</h1>
+    <div id="main">
+        <p>
+            <label for="output_selector">MIDI Output Port: </label>
+            <select id="output_selector" v-model="selectedOutputId">
+                <option v-for="output in outputs" :value="output.id">{{output.name}}</option>
+            </select>
+        </p>
+        <button v-for="chord in chords" @mousedown="onMouseDown(chord.notes)" @mouseup="onMouseUp(chord.notes)" @mouseout="onMouseOut(chord.notes)">{{chord.name}}</button>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.min.js"></script>
+    <script src="sample3.js"></script>
+</body>
+</html>
